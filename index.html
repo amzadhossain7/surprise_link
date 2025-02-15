@@ -122,12 +122,15 @@
         const heartLoader = document.getElementById("heartLoader");
         const resultFirst = document.getElementById("resultFirst");
 
-        noBtn.addEventListener("mouseover", () => {
+        function moveNoBtn() {
             const newX = Math.floor(Math.random() * questionContainer.offsetWidth);
             const newY = Math.floor(Math.random() * questionContainer.offsetHeight);
             noBtn.style.left = `${newX}px`;
             noBtn.style.top = `${newY}px`;
-        });
+        }
+
+        noBtn.addEventListener("mouseover", moveNoBtn);
+        noBtn.addEventListener("touchstart", moveNoBtn);
 
         yesBtn.addEventListener("click", () => {
             questionText.style.display = "none"; // Hide the question text
